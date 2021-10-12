@@ -1,18 +1,18 @@
-document.getElementById('submit-location').addEventListener('click', () => {
-  handleSubmit();
-});
-
-function handleSubmit() {
-  fetchWeatherData(locationInput(), processData, displayData);
-}
-
-function fetchWeatherData(location, callback1, callback2) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=`, { mode: 'cors' })
+function fetchWeatherData(location, unit, callback1, callback2) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=`, { mode: 'cors' })
     .then((response) => response.json())
     .then((data) => callback1(data))
     .then((data) => {
       callback2(data);
     });
+}
+
+function unitSelection() {
+  if (document.getElementById('celsius').checked) {
+    return 'metric';
+  }
+  document.getElementById('fahrenheit').checked = true;
+  return 'imperial';
 }
 
 function locationInput() {
@@ -36,9 +36,19 @@ function processData(data) {
 
 function displayData(data) {
   document.getElementById('weather-data').innerHTML = `
+  	<span class="data-item"><img src="./images/${data.sky_desc}.png"></span>
 	<span class="data-item">${data.location}</span>
 	<span class="data-item">${data.temp}</span>
 	<span class="data-item">${data.humidity}</span>
 	<span class="data-item">${data.sky_desc}</span>
   `;
 }
+
+function handleSubmit() {
+  fetchWeatherData(locationInput(), unitSelection(), processData, displayData);
+}
+
+document.getElementById('submit-info').addEventListener('click', (e) => {
+  e.preventDefault();
+  handleSubmit();
+});

@@ -12,8 +12,21 @@
 
 			</div>
 			<div id="get-info">
-				<input id="location-input">
-				<button id="submit-location">Submit</button>
+				<form id="form-info">
+					<input type="text" id="location-input">
+					<input type="submit" id="submit-info" value="Submit"> 
+					<div>
+						<span>
+							<input type="radio" id="fahrenheit" name="temp" value="fahrenheit">
+							<label for="fahrenheit">Fahrenheit</label>
+						</span>
+						<span>
+							<input type="radio" id="celsius" name="temp" value="celsius">
+							<label for="celsius">Celsius</label>
+						</span>
+					</div>
+				</form>
+
 			</div>
 		</div>
     <script src="script.js"></script>
