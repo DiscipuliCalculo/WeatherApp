@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Weather App</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-		<div id="content">
-			<div id="weather-data">
-
-			</div>
-			<div id="get-info">
-				<form id="form-info">
-					<input type="text" id="location-input">
-					<input type="submit" id="submit-info" value="Submit"> 
-					<div>
-						<span>
-							<input type="radio" id="fahrenheit" name="temp" value="fahrenheit">
-							<label for="fahrenheit">Fahrenheit</label>
-						</span>
-						<span>
-							<input type="radio" id="celsius" name="temp" value="celsius">
-							<label for="celsius">Celsius</label>
-						</span>
-					</div>
-				</form>
-
-			</div>
-		</div>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Weather App</h1>
+        </header>
+        <main>
+            <div id="weather-container">
+                <div id="weather-data">
+                    <!-- Weather data will be displayed here -->
+                </div>
+                <div id="get-info">
+                    <form id="form-info">
+                        <input type="text" id="location-input" placeholder="Enter Location">
+                        <input type="submit" id="submit-info" value="Get Weather">
+                        <div id="unit-options">
+                            <span>
+                                <input type="radio" id="fahrenheit" name="temp" value="fahrenheit">
+                                <label for="fahrenheit">Fahrenheit</label>
+                            </span>
+                            <span>
+                                <input type="radio" id="celsius" name="temp" value="celsius">
+                                <label for="celsius">Celsius</label>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
